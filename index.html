@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"class="scroll-smooth scroll-pt-24">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -33,9 +33,12 @@
 <div id="app" v-cloak>
     <header class="gradient-bg text-white p-6 shadow-md sticky top-0 z-50">
         <div class="container mx-auto flex flex-wrap justify-between items-center gap-4">
-            <h1 class="text-3xl font-bold tracking-tight">Connor: Engineering the Future</h1>
+            <a href="#" class="hover:text-purple-200 transition duration-150">
+                <h1 class="text-3xl font-bold tracking-tight">Connor: Engineering the Future</h1>
+            </a>
+            
             <nav class="space-x-6 font-medium text-sm md:text-base">
-                <a href="#" class="hover:text-purple-200 transition">Campaign Home</a>
+                <a href="#mission" class="hover:text-purple-200 transition">Exoboot Mission</a>
                 <a href="#academics" class="hover:text-purple-200 transition">Academics</a>
                 <a href="#campus" class="hover:text-purple-200 transition">Campus</a>
                 <a href="#analysis" class="hover:text-purple-200 transition">Funding Analysis</a>
@@ -58,8 +61,13 @@
                     I am a high-achieving math student accepted into a top-tier BioMechanical Engineering program. As an independent student (estranged) with dual neurodivergent and physical disabilities, I am fighting to bridge the final financial gap for essentials like accessible housing and an inclusive meal plan.
                 </p>
                 <div class="flex flex-wrap gap-4">
-                    <a href="#analysis" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-full shadow-lg transition duration-150">Help Close the Gap</a>
-                    <a href="#academics" class="bg-gray-100 hover:bg-gray-200 text-gray-800 font-semibold py-3 px-8 rounded-full transition duration-150">View My Portfolio</a>
+                    <a href="#donate" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-full shadow-lg transition duration-150">
+                        Help Close the ${{ gapAmount.toLocaleString() }} Gap
+                    </a>
+                    
+                    <a href="https://connorevanlloyd.wordpress.com/" class="bg-gray-100 hover:bg-gray-200 text-gray-800 font-semibold py-3 px-8 rounded-full transition duration-150">
+                        View My Portfolio
+                    </a>
                 </div>
             </div>
             
@@ -93,21 +101,38 @@
 
             <div class="md:col-span-3 bg-white p-8 rounded-3xl shadow-lg border border-gray-100">
                 <h3 class="text-3xl font-bold text-gray-900 mb-2">Program Curriculum</h3>
-                <p class="text-gray-600 mb-8">A rigorous, math-intensive trajectory designed to merge mechanical engineering with biological systems, directly leading to high-impact careers in prosthetics and accessible technology design.</p>
+                <p class="text-gray-600 mb-6">A rigorous, math-intensive trajectory designed to merge mechanical engineering with biological systems, directly leading to high-impact careers in prosthetics and accessible technology design.</p>
                 
+                <div class="mb-8 bg-gradient-to-r from-blue-50 to-indigo-50 p-5 rounded-2xl border border-blue-100 shadow-sm flex items-start gap-4">
+                    <div class="bg-blue-600 text-white p-3 rounded-full shrink-0 shadow-md">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14v7M5 9.67v.13m0 0l7 4 7-4v-.13m-14 0V15m14-5.33V15"></path></svg>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-blue-950 text-lg">Proven Academic Excellence</h4>
+                        <p class="text-sm text-blue-800 mt-1">
+                            Connor is not starting from zero. He is entering RIT already holding an <strong>Associate's Degree in Mathematics</strong>. This proven mastery of advanced collegiate mathematics guarantees he is uniquely prepared to tackle the intense computational demands of BioMechanical Engineering.
+                        </p>
+                    </div>
+                </div>
+
                 <div class="grid sm:grid-cols-2 gap-6">
-                    <div class="bg-blue-50 p-5 rounded-2xl border border-blue-100">
-                        <h4 class="font-bold text-blue-900 mb-3 flex items-center gap-2">
+                    <div class="bg-blue-50 p-5 rounded-2xl border border-blue-100 relative overflow-hidden">
+                        <div class="absolute -right-4 -top-4 text-blue-100 opacity-50 transform rotate-12">
+                            <svg class="w-24 h-24" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                        </div>
+                        
+                        <h4 class="font-bold text-blue-900 mb-3 flex items-center gap-2 relative z-10">
                             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
                             Advanced Mathematics
                         </h4>
-                        <ul class="text-sm text-blue-800 space-y-2 list-disc list-inside marker:text-blue-400">
-                            <li>Multivariable Calculus</li>
-                            <li>Differential Equations</li>
-                            <li>Linear Algebra</li>
+                        <ul class="text-sm text-blue-800 space-y-2 list-disc list-inside marker:text-blue-400 relative z-10">
+                            <li>Multivariable Calculus <span class="text-xs font-bold text-blue-600 ml-1">(Completed)</span></li>
+                            <li>Differential Equations <span class="text-xs font-bold text-blue-600 ml-1">(Completed)</span></li>
+                            <li>Linear Algebra <span class="text-xs font-bold text-blue-600 ml-1">(Completed)</span></li>
                             <li>Engineering Statistics</li>
                         </ul>
                     </div>
+                    
                     <div class="bg-purple-50 p-5 rounded-2xl border border-purple-100">
                         <h4 class="font-bold text-purple-900 mb-3 flex items-center gap-2">
                             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
@@ -145,6 +170,73 @@
                         allowfullscreen>
                     </iframe>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="mission" class="container mx-auto mt-16 px-6">
+        <div class="bg-white p-8 md:p-12 rounded-3xl shadow-xl border border-purple-100 relative overflow-hidden">
+            <div class="absolute top-0 right-0 w-64 h-64 bg-purple-50 rounded-full mix-blend-multiply filter blur-3xl opacity-70 -mr-20 -mt-20"></div>
+            
+            <div class="relative z-10 grid lg:grid-cols-2 gap-12 items-center">
+                
+                <div class="space-y-8">
+                    <div>
+                        <h2 class="text-sm font-extrabold text-purple-600 uppercase tracking-widest mb-2 flex items-center gap-2">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                            My Personal Mission
+                        </h2>
+                        <h3 class="text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight">
+                            Regaining Freedom. <br><span class="text-transparent bg-clip-text gradient-bg">Revolutionizing Access.</span>
+                        </h3>
+                    </div>
+
+                    <div class="space-y-6">
+                        <div class="flex gap-4">
+                            <div class="shrink-0 w-12 h-12 rounded-full bg-purple-100 flex items-center justify-center text-purple-700 font-bold text-xl">1</div>
+                            <div>
+                                <h4 class="text-xl font-bold text-gray-900 mb-2">The Exoboot Prototype</h4>
+                                <p class="text-gray-600 leading-relaxed">Before I walk across the graduation stage, my goal is to design, build, and test a fully functional exoboot prototype. This is not just an academic exercise; it is my personal roadmap to overcoming the physical limitations of fallen arches and regaining my independence.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4">
+                            <div class="shrink-0 w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center text-blue-700 font-bold text-xl">2</div>
+                            <div>
+                                <h4 class="text-xl font-bold text-gray-900 mb-2">Global Impact</h4>
+                                <p class="text-gray-600 leading-relaxed">Your donation empowers one student today, but the impact doesn't end with me. By proving these accessible, low-cost biomechanical concepts, the designs and technology I develop will be open-sourced to help millions around the world who face similar mobility afflictions.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4">
+                            <div class="shrink-0 w-12 h-12 rounded-full bg-orange-100 flex items-center justify-center text-orange-700 font-bold text-xl">3</div>
+                            <div>
+                                <h4 class="text-xl font-bold text-gray-900 mb-2">The RIT Advantage</h4>
+                                <p class="text-gray-600 leading-relaxed">RIT is the engine that makes this possible. With immediate access to state-of-the-art additive manufacturing labs, advanced biomechanics research facilities, and world-class mentorship, RIT provides the exact environment needed to turn this ambitious concept into a life-changing reality.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative">
+                    <div class="bg-gray-50 rounded-2xl p-4 border-2 border-dashed border-gray-300 shadow-inner relative group transition duration-300 hover:border-purple-400">
+                        
+                        <div class="absolute -top-4 left-6 bg-gray-900 text-white text-xs font-bold uppercase tracking-wider py-1 px-3 rounded-full shadow-md z-20">
+                            Prototype Concept Art
+                        </div>
+
+                        <div class="aspect-[4/5] w-full bg-gray-200 rounded-xl overflow-hidden relative flex items-center justify-center">                            
+                            <img src="ExoBoot.png" alt="Exoboot Concept Sketch" class="w-full h-full object-cover opacity-80 mix-blend-multiply">
+                        </div>
+
+                        <div class="absolute -bottom-4 -right-4 flex space-x-1">
+                            <div class="w-2 h-2 rounded-full bg-purple-400"></div>
+                            <div class="w-2 h-2 rounded-full bg-purple-600"></div>
+                            <div class="w-2 h-2 rounded-full bg-gray-900"></div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
@@ -204,7 +296,7 @@
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
                     </a>
                     
-                    <button class="bg-gray-900 hover:bg-gray-800 text-white font-bold text-lg py-4 px-8 rounded-full shadow-lg transition duration-200 border border-gray-900 hover:border-gray-700 flex items-center gap-2">
+                    <button @click="shareCampaign" class="bg-gray-900 hover:bg-gray-800 text-white font-bold text-lg py-4 px-8 rounded-full shadow-lg transition duration-200 border border-gray-900 hover:border-gray-700 flex items-center gap-2">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"></path></svg>
                         Share Campaign
                     </button>
@@ -213,7 +305,7 @@
 
             <div class="w-full md:w-1/3 bg-black/10 p-8 rounded-2xl border border-white/20 text-center backdrop-blur-sm shadow-inner">
                 <h4 class="text-xl font-bold mb-2 text-purple-50 uppercase tracking-widest">Target Goal</h4>
-                <p class="text-6xl font-black text-white drop-shadow-md mb-2">$4,500</p>
+                <p class="text-6xl font-black text-white drop-shadow-md mb-2">${{ gapAmount.toLocaleString() }}</p>
                 <p class="text-sm font-semibold opacity-90">Remaining for Year 1</p>
             </div>
             
@@ -230,7 +322,7 @@
 </div>
 
 <script>
-    const { createApp, onMounted, ref } = Vue;
+    const { createApp, onMounted, ref, computed } = Vue;
 
     createApp({
         setup() {
@@ -251,7 +343,35 @@
                 { name: 'Third-Party Scholarships', secured: 0, potential: 9105, description: 'Applications submitted (OAR, Lime, etc.). Status pending. This is the primary target area for this campaign.', color: '#fb923c' },
             ]);
 
-            const totalSecured = fundingSources.value.reduce((sum, s) => sum + s.secured, 0);
+            // MAKE THESE COMPUTED: This ensures if you ever change the values above, 
+            // the gap recalculates everywhere on the page automatically.
+            const totalSecured = computed(() => fundingSources.value.reduce((sum, s) => sum + s.secured, 0));
+            const gapAmount = computed(() => totalNeeded.value - totalSecured.value);
+
+            const shareCampaign = async () => {
+                const shareData = {
+                    title: "Connor's BioMechanical Engineering Fund",
+                    text: "Help Connor secure his final step to an engineering degree at RIT to build accessible exoboot technology!",
+                    url: window.location.href // Automatically grabs your GitHub Pages URL
+                };
+
+                // Check if the device supports the native share menu
+                if (navigator.share) {
+                    try {
+                        await navigator.share(shareData);
+                    } catch (err) {
+                        console.log('User cancelled share or error occurred.');
+                    }
+                } else {
+                    // Fallback for older desktop browsers: Copy to clipboard
+                    try {
+                        await navigator.clipboard.writeText(shareData.url);
+                        alert("Campaign link copied to clipboard! Thank you for sharing.");
+                    } catch (err) {
+                        alert("Could not copy link. Please manually copy the URL in your address bar.");
+                    }
+                }
+            };
 
             onMounted(() => {
                 const ctxTherm = document.getElementById('fundingThermometer').getContext('2d');
@@ -269,7 +389,7 @@
                             })),
                             {
                                 label: 'Gap Needed',
-                                data: [totalNeeded.value - totalSecured],
+                                data: [gapAmount.value], // <-- Uses the live gap amount
                                 backgroundColor: '#e5e7eb', 
                                 borderWidth: 2,
                                 borderColor: '#fb923c', 
@@ -314,7 +434,8 @@
                 });
             });
 
-            return { totalNeeded, fundingSources };
+            // Make sure to return gapAmount so the HTML can use it!
+            return { totalNeeded, fundingSources, gapAmount, shareCampaign };
         }
     }).mount('#app');
 </script>
