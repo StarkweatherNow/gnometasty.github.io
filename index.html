@@ -1,1 +1,288 @@
-Hello World
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BioMechanical Engineering Fund | Connor's Journey</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        [v-cloak] { display: none; }
+        .thermometer-container { height: 500px; }
+        .gradient-bg { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+        /* Responsive video container */
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+            border-radius: 1rem;
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-900 font-sans">
+
+<div id="app" v-cloak>
+    <header class="gradient-bg text-white p-6 shadow-md sticky top-0 z-50">
+        <div class="container mx-auto flex flex-wrap justify-between items-center gap-4">
+            <h1 class="text-3xl font-bold tracking-tight">Connor: Engineering the Future</h1>
+            <nav class="space-x-6 font-medium text-sm md:text-base">
+                <a href="#" class="hover:text-purple-200 transition">Campaign Home</a>
+                <a href="#academics" class="hover:text-purple-200 transition">Academics</a>
+                <a href="#campus" class="hover:text-purple-200 transition">Campus</a>
+                <a href="#analysis" class="hover:text-purple-200 transition">Funding Analysis</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="container mx-auto mt-12 px-6">
+        <div class="grid md:grid-cols-2 gap-12 items-center bg-white p-10 rounded-3xl shadow-xl border border-gray-100">
+            <div>
+                <div class="flex items-center gap-4 mb-5">
+                    <div class="w-20 h-20 rounded-full overflow-hidden border-4 border-purple-100 shadow-sm shrink-0 bg-gray-200">
+                        <img src="https://via.placeholder.com/150" alt="Connor Headshot" class="w-full h-full object-cover">
+                    </div>
+                    <span class="inline-block bg-purple-100 text-purple-800 text-xs px-3 py-1 rounded-full font-semibold uppercase tracking-wider">2024-2025 Academic Year</span>
+                </div>
+
+                <h2 class="text-5xl font-extrabold text-gray-950 leading-tight mb-6">Securing the final step to a BioMechanical Engineering Degree.</h2>
+                <p class="text-lg text-gray-700 mb-8">
+                    I am a high-achieving math student accepted into a top-tier BioMechanical Engineering program. As an independent student (estranged) with dual neurodivergent and physical disabilities, I am fighting to bridge the final financial gap for essentials like accessible housing and an inclusive meal plan.
+                </p>
+                <div class="flex flex-wrap gap-4">
+                    <a href="#analysis" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-full shadow-lg transition duration-150">Help Close the Gap</a>
+                    <a href="#academics" class="bg-gray-100 hover:bg-gray-200 text-gray-800 font-semibold py-3 px-8 rounded-full transition duration-150">View My Portfolio</a>
+                </div>
+            </div>
+            
+            <div class="thermometer-container bg-gray-50 p-6 rounded-2xl border border-gray-200 shadow-inner">
+                <h3 class="text-center font-semibold text-gray-700 mb-2">Total Year 1 Goal: ${{ totalNeeded.toLocaleString() }}</h3>
+                <canvas id="fundingThermometer"></canvas>
+            </div>
+        </div>
+    </section>
+
+    <section id="academics" class="container mx-auto mt-16 px-6">
+        <div class="grid md:grid-cols-5 gap-8">
+            
+            <div class="md:col-span-2 bg-white p-8 rounded-3xl shadow-lg border border-gray-100 flex flex-col justify-between">
+                <div>
+                    <div class="flex items-center gap-4 mb-6 border-b pb-4">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Rochester_Institute_of_Technology_seal.svg/200px-Rochester_Institute_of_Technology_seal.svg.png" alt="RIT Official Seal" class="w-16 h-16 object-contain">
+                        <h3 class="text-2xl font-bold text-gray-900">Official Acceptance</h3>
+                    </div>
+                    <div class="font-serif text-gray-700 space-y-4 mb-8">
+                        <p class="italic">"Dear Connor,</p>
+                        <p>Congratulations! It is with great pleasure that I offer you admission to the Kate Gleason College of Engineering at the Rochester Institute of Technology (RIT).</p>
+                        <p>Your academic achievements in advanced mathematics and your demonstrated resilience stood out to our admissions committee. We are thrilled to welcome you to the B.S. BioMechanical Engineering cohort..."</p>
+                    </div>
+                </div>
+                <button class="w-full bg-gray-900 hover:bg-gray-800 text-white font-semibold py-3 px-6 rounded-xl transition duration-150 flex justify-center items-center gap-2">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                    View Official Letter PDF
+                </button>
+            </div>
+
+            <div class="md:col-span-3 bg-white p-8 rounded-3xl shadow-lg border border-gray-100">
+                <h3 class="text-3xl font-bold text-gray-900 mb-2">Program Curriculum</h3>
+                <p class="text-gray-600 mb-8">A rigorous, math-intensive trajectory designed to merge mechanical engineering with biological systems, directly leading to high-impact careers in prosthetics and accessible technology design.</p>
+                
+                <div class="grid sm:grid-cols-2 gap-6">
+                    <div class="bg-blue-50 p-5 rounded-2xl border border-blue-100">
+                        <h4 class="font-bold text-blue-900 mb-3 flex items-center gap-2">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
+                            Advanced Mathematics
+                        </h4>
+                        <ul class="text-sm text-blue-800 space-y-2 list-disc list-inside marker:text-blue-400">
+                            <li>Multivariable Calculus</li>
+                            <li>Differential Equations</li>
+                            <li>Linear Algebra</li>
+                            <li>Engineering Statistics</li>
+                        </ul>
+                    </div>
+                    <div class="bg-purple-50 p-5 rounded-2xl border border-purple-100">
+                        <h4 class="font-bold text-purple-900 mb-3 flex items-center gap-2">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                            Engineering Core
+                        </h4>
+                        <ul class="text-sm text-purple-800 space-y-2 list-disc list-inside marker:text-purple-400">
+                            <li>Biomechanics & Biomaterials</li>
+                            <li>Fluid Mechanics</li>
+                            <li>Thermodynamics</li>
+                            <li>Systems Dynamics & Control</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="campus" class="container mx-auto mt-16 px-6">
+        <div class="bg-gray-900 p-8 md:p-12 rounded-3xl shadow-xl border border-gray-800 text-white">
+            <div class="text-center max-w-2xl mx-auto mb-8">
+                <img src="https://upload.wikimedia.org/wikipedia/en/thumb/7/77/Rochester_Institute_of_Technology_Athletics_logo.svg/200px-Rochester_Institute_of_Technology_Athletics_logo.svg.png" alt="RIT Tigers" class="w-24 mx-auto mb-4 opacity-90">
+                
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Explore the Future Campus</h2>
+                <p class="text-gray-400">A look inside the state-of-the-art facilities, engineering labs, and accessible community where I will be spending the next four years pushing the boundaries of accessible technology.</p>
+            </div>
+            
+            <div class="max-w-4xl mx-auto shadow-2xl rounded-2xl overflow-hidden ring-4 ring-gray-800">
+                <div class="video-container bg-black">
+                    <iframe 
+                        src="https://www.youtube.com/embed/JauOPGijv_Q" 
+                        title="The Campus Tour | Rochester Institute of Technology" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                        referrerpolicy="strict-origin-when-cross-origin" 
+                        allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="analysis" class="container mx-auto mt-16 px-6 mb-20">
+        <div class="bg-white p-10 rounded-3xl shadow-lg border border-gray-100">
+            <div class="border-b border-gray-200 pb-6 mb-10">
+                <h2 class="text-4xl font-bold text-gray-900">Total Transparency: The Funding Breakdown</h2>
+                <p class="text-lg text-gray-600 mt-2">Every dollar already secured has been fought for. We have systematically exhausted standard avenues. This is where we stand, and exactly why your help is critical.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-10">
+                <div class="space-y-6">
+                    <h4 class="text-2xl font-semibold text-gray-900 border-l-4 border-purple-500 pl-3">Year 1 Costs</h4>
+                    <div class="bg-gray-50 p-6 rounded-xl border border-gray-200">
+                        <canvas id="costBreakdownChart"></canvas>
+                    </div>
+                    <p class="text-sm text-gray-600 bg-purple-50 p-4 rounded-lg">This analysis targets 'Cost of Attendance' (COA), which includes non-tuition essentials like a standard dorm and required meal plan, allowing me to focus exclusively on this rigorous STEM curriculum.</p>
+                </div>
+
+                <div class="md:col-span-2 space-y-6">
+                    <h4 class="text-2xl font-semibold text-gray-900 border-l-4 border-green-500 pl-3">Avenues Processed and 'Exhausted'</h4>
+                    
+                    <div class="grid sm:grid-cols-2 gap-4">
+                        <div v-for="source in fundingSources" :key="source.name" :class="['p-5 rounded-xl border', source.secured > 0 ? 'bg-green-50 border-green-200' : 'bg-gray-50 border-gray-200']">
+                            <div class="flex justify-between items-start">
+                                <h5 class="font-bold text-gray-950">{{ source.name }}</h5>
+                                <span :class="['px-3 py-1 rounded-full text-xs font-bold uppercase', source.secured > 0 ? 'bg-green-100 text-green-800' : 'bg-yellow-100 text-yellow-800']">
+                                    {{ source.secured > 0 ? 'Secured' : 'Pending/Gap' }}
+                                </span>
+                            </div>
+                            <p class="text-2xl font-extrabold mt-2 text-gray-900">${{ source.secured.toLocaleString() }} <span class="text-sm font-normal text-gray-500">/ ${{ source.potential.toLocaleString() }}</span></p>
+                            <p class="text-sm text-gray-600 mt-2">{{ source.description }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-gray-900 text-gray-300 p-10 mt-auto">
+        <div class="container mx-auto text-center text-sm">
+            <p>This is a grassroots fundraising campaign managed by advocates supporting Connor.</p>
+            <p class="mt-2">This page is hosted transparently on GitHub Pages. No backend data is collected.</p>
+            <p class="mt-4"><a href="https://www.youtube.com/watch?v=JauOPGijv_Q" target="_blank" class="text-purple-400 hover:underline">Watch the original RIT Campus Tour video on YouTube</a></p>
+        </div>
+    </footer>
+</div>
+
+<script>
+    const { createApp, onMounted, ref } = Vue;
+
+    createApp({
+        setup() {
+            const totalNeeded = ref(45000); 
+
+            const costData = {
+                tuition: 30000,
+                housingBoard: 13000,
+                booksSupplies: 1200,
+                other: 800
+            };
+
+            const fundingSources = ref([
+                { name: 'FAFSA (Pell Grant)', secured: 7395, potential: 7395, description: 'Max Pell Grant secured via Dependency Override (Independent status).', color: '#4ade80' },
+                { name: 'University Merit', secured: 20000, potential: 20000, description: 'Renewable merit scholarship secured based on academic performance.', color: '#60a5fa' },
+                { name: 'Student Loans', secured: 5500, potential: 5500, description: 'Standard federal direct subsidized/unsubsidized loans committed.', color: '#a78bfa' },
+                { name: 'Vocational Rehab (VR)', secured: 3000, potential: 15000, description: 'Initial commitment secured. We are actively advocating for VR to cover the full accessible housing need.', color: '#facc15' },
+                { name: 'Third-Party Scholarships', secured: 0, potential: 9105, description: 'Applications submitted (OAR, Lime, etc.). Status pending. This is the primary target area for this campaign.', color: '#fb923c' },
+            ]);
+
+            const totalSecured = fundingSources.value.reduce((sum, s) => sum + s.secured, 0);
+
+            onMounted(() => {
+                const ctxTherm = document.getElementById('fundingThermometer').getContext('2d');
+                new Chart(ctxTherm, {
+                    type: 'bar',
+                    data: {
+                        labels: ['Funding Status'],
+                        datasets: [
+                            ...fundingSources.value.map(source => ({
+                                label: source.name,
+                                data: [source.secured],
+                                backgroundColor: source.color,
+                                borderWidth: 0,
+                                stack: 'Stack 0',
+                            })),
+                            {
+                                label: 'Gap Needed',
+                                data: [totalNeeded.value - totalSecured],
+                                backgroundColor: '#e5e7eb', 
+                                borderWidth: 2,
+                                borderColor: '#fb923c', 
+                                borderDash: [5, 5],
+                                stack: 'Stack 0',
+                            }
+                        ]
+                    },
+                    options: {
+                        plugins: {
+                            legend: { display: true, position: 'bottom', labels: { boxWidth: 12 } },
+                            tooltip: { callbacks: { label: (ctx) => `${ctx.dataset.label}: $${ctx.raw.toLocaleString()}` } }
+                        },
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        scales: {
+                            x: { stacked: true, display: false },
+                            y: { stacked: true, beginAtZero: true, max: totalNeeded.value, ticks: { callback: (v) => '$' + v.toLocaleString() } }
+                        }
+                    }
+                });
+
+                const ctxCost = document.getElementById('costBreakdownChart').getContext('2d');
+                new Chart(ctxCost, {
+                    type: 'doughnut',
+                    data: {
+                        labels: ['Tuition & Fees', 'Housing & Food', 'Books', 'Other'],
+                        datasets: [{
+                            data: [costData.tuition, costData.housingBoard, costData.booksSupplies, costData.other],
+                            backgroundColor: ['#7c3aed', '#a78bfa', '#ddd6fe', '#f5f3ff'], 
+                            borderWidth: 2,
+                            borderColor: '#ffffff'
+                        }]
+                    },
+                    options: {
+                        plugins: {
+                            legend: { display: true, position: 'bottom', labels: { boxWidth: 10, padding: 15, font: { size: 11 } } },
+                        },
+                        responsive: true,
+                        maintainAspectRatio: true,
+                    }
+                });
+            });
+
+            return { totalNeeded, fundingSources };
+        }
+    }).mount('#app');
+</script>
+
+</body>
+</html>
