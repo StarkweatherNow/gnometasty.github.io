@@ -1,1 +1,567 @@
-Hello World
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth scroll-pt-24">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connor's Electrical Engineering Fund | Help Build an Open-Source Exoboot at RIT</title>
+
+    <!-- SEO -->
+    <meta name="description" content="Connor Lloyd is an accepted RIT Electrical Engineering student designing an open-source exoboot for people with mobility disabilities. Help close a $14,773 funding gap for his 2026–2027 academic year at the Kate Gleason College of Engineering.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://gnometasty.github.io/">
+
+    <!-- Open Graph (Facebook, LinkedIn, Discord, Slack, iMessage) -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://gnometasty.github.io/">
+    <meta property="og:title" content="Connor's Electrical Engineering Fund | Help Build an Open-Source Exoboot">
+    <meta property="og:description" content="Connor is an accepted RIT Electrical Engineering student designing an open-source exoboot for people with mobility disabilities. Help close a $14,773 funding gap for his 2026–2027 academic year.">
+    <meta property="og:image" content="https://avatars.githubusercontent.com/u/142328938?v=4">
+    <meta property="og:image:alt" content="Connor Lloyd — Electrical Engineering student at RIT">
+    <meta property="og:site_name" content="Connor's Engineering Fund">
+    <meta property="og:locale" content="en_US">
+
+    <!-- Twitter / X Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Connor's Electrical Engineering Fund | Help Build an Open-Source Exoboot">
+    <meta name="twitter:description" content="Connor is an accepted RIT Electrical Engineering student designing an open-source exoboot for people with mobility disabilities. Help close a $14,773 funding gap for his 2026–2027 academic year.">
+    <meta name="twitter:image" content="https://avatars.githubusercontent.com/u/142328938?v=4">
+    <meta name="twitter:image:alt" content="Connor Lloyd — Electrical Engineering student at RIT">
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Connor Lloyd",
+      "description": "Electrical Engineering student at Rochester Institute of Technology designing an open-source exoboot for mobility accessibility.",
+      "url": "https://gnometasty.github.io/",
+      "sameAs": ["https://connorevanlloyd.wordpress.com/"],
+      "alumniOf": {
+        "@type": "EducationalOrganization",
+        "name": "Rochester Institute of Technology",
+        "url": "https://www.rit.edu/"
+      }
+    }
+    </script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        [v-cloak] { display: none; }
+        .thermometer-container { height: 500px; }
+        .gradient-bg { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+        /* Responsive video container */
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+            border-radius: 1rem;
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-900 font-sans">
+
+<div id="app" v-cloak>
+    <!-- Skip navigation link for keyboard/screen reader users -->
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:bg-white focus:text-purple-700 focus:font-bold focus:px-4 focus:py-2 focus:rounded-lg focus:shadow-lg focus:outline-none">
+        Skip to main content
+    </a>
+
+    <header aria-label="Site header" class="gradient-bg text-white p-6 shadow-md sticky top-0 z-50">
+        <div class="container mx-auto flex flex-wrap justify-between items-center gap-4">
+            <a href="#" class="hover:text-purple-200 transition duration-150">
+                <h1 class="text-3xl font-bold tracking-tight">Connor: Engineering the Future</h1>
+            </a>
+
+            <nav aria-label="Main navigation" class="space-x-6 font-medium text-sm md:text-base">
+                <a href="#mission" class="hover:text-purple-200 transition">Exoboot Mission</a>
+                <a href="#academics" class="hover:text-purple-200 transition">Academics</a>
+                <a href="#campus" class="hover:text-purple-200 transition">Campus</a>
+                <a href="#analysis" class="hover:text-purple-200 transition">Funding Analysis</a>
+                <a href="#donors" class="hover:text-purple-200 transition">Donors</a>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main-content">
+    <section aria-labelledby="hero-heading" class="container mx-auto mt-12 px-6">
+        <div class="grid md:grid-cols-2 gap-12 items-center bg-white p-10 rounded-3xl shadow-xl border border-gray-100">
+            <div>
+                <div class="flex items-center gap-4 mb-5">
+                    <div class="w-20 h-20 rounded-full overflow-hidden border-4 border-purple-100 shadow-sm shrink-0 bg-gray-200">
+                        <img src="https://avatars.githubusercontent.com/u/142328938?v=4" alt="Connor Headshot" class="w-full h-full object-cover">
+                    </div>
+                    <span class="inline-block bg-purple-100 text-purple-800 text-xs px-3 py-1 rounded-full font-semibold uppercase tracking-wider">2026-2027 Academic Year</span>
+                </div>
+
+                <h2 id="hero-heading" class="text-5xl font-extrabold text-gray-950 leading-tight mb-6">Securing the final step to an Electrical Engineering Degree.</h2>
+                <p class="text-lg text-gray-700 mb-8">
+                    I am a high-achieving math student accepted into a top-tier Electrical Engineering program. As an independent student (estranged) with dual neurodivergent and physical disabilities, I am fighting to bridge the final financial gap for essentials like accessible housing and an inclusive meal plan.
+                </p>
+                <div class="flex flex-wrap gap-4">
+                    <a href="#donate" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-full shadow-lg transition duration-150">
+                        Help Close the ${{ gapAmount.toLocaleString() }} Gap
+                    </a>
+                    
+                    <a href="https://connorevanlloyd.wordpress.com/" class="bg-gray-100 hover:bg-gray-200 text-gray-800 font-semibold py-3 px-8 rounded-full transition duration-150">
+                        View My Portfolio
+                    </a>
+                </div>
+            </div>
+            
+            <div class="thermometer-container bg-gray-50 p-6 rounded-2xl border border-gray-200 shadow-inner">
+                <h3 class="text-center font-semibold text-gray-700 mb-2">Total Year 1 Goal: ${{ totalNeeded.toLocaleString() }}</h3>
+                <canvas id="fundingThermometer" role="img" aria-label="Stacked bar chart showing funding secured versus the remaining gap toward the $85,093 cost of attendance goal"></canvas>
+            </div>
+        </div>
+    </section>
+
+    <section id="academics" aria-labelledby="academics-heading" class="container mx-auto mt-16 px-6">
+        <div class="grid md:grid-cols-5 gap-8">
+            
+            <div class="md:col-span-2 bg-white p-8 rounded-3xl shadow-lg border border-gray-100 flex flex-col justify-between">
+                <div>
+                    <div class="flex items-center gap-4 mb-6 border-b pb-4">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Rochester_Institute_of_Technology_seal.svg/200px-Rochester_Institute_of_Technology_seal.svg.png" alt="RIT Official Seal" class="w-16 h-16 object-contain">
+                        <h3 id="academics-heading" class="text-2xl font-bold text-gray-900">Official Acceptance</h3>
+                    </div>
+                    <div class="font-serif text-gray-700 space-y-4 mb-8">
+                        <p>"Dear Connor:</p>
+                        <p>Congratulations! I am pleased to inform you that your application to the Electrical Engineering program at Rochester Institute of Technology has been approved by our Admissions Committee for Fall 2026 entry.We believe that you possess the academic potential and motivation to benefit from the rich academic resources available to you at RIT.</p>
+                        <p>In deciding to attend RIT, you will be joining the student body of an internationally recognized university.Enthusiasm and commitment to teaching are undeniable characteristics of RIT’s distinguished faculty."</p>
+                    </div>
+                </div>
+                <a href="RIT_Letter.pdf" target="_blank" rel="noopener noreferrer" aria-label="View Official RIT Acceptance Letter PDF (opens in new tab)" class="w-full bg-gray-900 hover:bg-gray-800 text-white font-semibold py-3 px-6 rounded-xl transition duration-150 flex justify-center items-center gap-2">
+                    <svg aria-hidden="true" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                    View Official Letter PDF
+                </a>
+            </div>
+
+            <div class="md:col-span-3 bg-white p-8 rounded-3xl shadow-lg border border-gray-100">
+                <h3 class="text-3xl font-bold text-gray-900 mb-2">Program Curriculum</h3>
+                <p class="text-gray-600 mb-6">A rigorous, math-intensive trajectory designing the circuits, control systems, and embedded firmware that power next-generation assistive devices — directly leading to high-impact careers in biomedical electronics and accessible technology.</p>
+                
+                <div class="mb-8 bg-gradient-to-r from-blue-50 to-indigo-50 p-5 rounded-2xl border border-blue-100 shadow-sm flex items-start gap-4">
+                    <div class="bg-blue-600 text-white p-3 rounded-full shrink-0 shadow-md">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14v7M5 9.67v.13m0 0l7 4 7-4v-.13m-14 0V15m14-5.33V15"></path></svg>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-blue-950 text-lg">Proven Academic Excellence</h4>
+                        <p class="text-sm text-blue-800 mt-1">
+                            Connor is not starting from zero. He is entering RIT already holding an <strong>Associate's Degree in Mathematics</strong>. This proven mastery of advanced collegiate mathematics guarantees he is uniquely prepared to tackle the intense analytical and systems-level demands of Electrical Engineering.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="grid sm:grid-cols-2 gap-6">
+                    <div class="bg-blue-50 p-5 rounded-2xl border border-blue-100 relative overflow-hidden">
+                        <div class="absolute -right-4 -top-4 text-blue-100 opacity-50 transform rotate-12">
+                            <svg class="w-24 h-24" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                        </div>
+                        
+                        <h4 class="font-bold text-blue-900 mb-3 flex items-center gap-2 relative z-10">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
+                            Advanced Mathematics
+                        </h4>
+                        <ul class="text-sm text-blue-800 space-y-2 list-disc list-inside marker:text-blue-400 relative z-10">
+                            <li>Multivariable Calculus <span class="text-xs font-bold text-blue-600 ml-1">(Completed)</span></li>
+                            <li>Differential Equations <span class="text-xs font-bold text-blue-600 ml-1">(Completed)</span></li>
+                            <li>Linear Algebra</li>
+                            <li>Engineering Statistics</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-purple-50 p-5 rounded-2xl border border-purple-100">
+                        <h4 class="font-bold text-purple-900 mb-3 flex items-center gap-2">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                            Engineering Core
+                        </h4>
+                        <ul class="text-sm text-purple-800 space-y-2 list-disc list-inside marker:text-purple-400">
+                            <li>Circuit Analysis & Electronics</li>
+                            <li>Signals & Systems</li>
+                            <li>Embedded Systems & Firmware</li>
+                            <li>Control Systems</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="campus" aria-labelledby="campus-heading" class="container mx-auto mt-16 px-6">
+        <div class="bg-gray-900 p-8 md:p-12 rounded-3xl shadow-xl border border-gray-800 text-white">
+            <div class="text-center max-w-2xl mx-auto mb-8">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/e/ea/RIT_Tigers_wordmark_with_paw.png" alt="RIT Tigers" class="w-24 mx-auto mb-4 opacity-90">
+                
+                <h2 id="campus-heading" class="text-3xl md:text-4xl font-bold mb-4">Explore the Future Campus</h2>
+                <p class="text-gray-400">A look inside the state-of-the-art facilities, engineering labs, and accessible community where I will be spending the next four years pushing the boundaries of accessible technology.</p>
+            </div>
+            
+            <div class="max-w-4xl mx-auto shadow-2xl rounded-2xl overflow-hidden ring-4 ring-gray-800">
+                <div class="video-container bg-black">
+                    <iframe 
+                        src="https://www.youtube.com/embed/JauOPGijv_Q" 
+                        title="The Campus Tour | Rochester Institute of Technology" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                        referrerpolicy="strict-origin-when-cross-origin" 
+                        allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="mission" aria-labelledby="mission-heading" class="container mx-auto mt-16 px-6">
+        <div class="bg-white p-8 md:p-12 rounded-3xl shadow-xl border border-purple-100 relative overflow-hidden">
+            <div class="absolute top-0 right-0 w-64 h-64 bg-purple-50 rounded-full mix-blend-multiply filter blur-3xl opacity-70 -mr-20 -mt-20"></div>
+            
+            <div class="relative z-10 grid lg:grid-cols-2 gap-12 items-center">
+                
+                <div class="space-y-8">
+                    <div>
+                        <h2 class="text-sm font-extrabold text-purple-600 uppercase tracking-widest mb-2 flex items-center gap-2">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                            My Personal Mission
+                        </h2>
+                        <h3 id="mission-heading" class="text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight">
+                            Regaining Freedom. <br><span class="text-transparent bg-clip-text gradient-bg">Revolutionizing Access.</span>
+                        </h3>
+                    </div>
+
+                    <div class="space-y-6">
+                        <div class="flex gap-4">
+                            <div aria-hidden="true" class="shrink-0 w-12 h-12 rounded-full bg-purple-100 flex items-center justify-center text-purple-700 font-bold text-xl">1</div>
+                            <div>
+                                <h4 class="text-xl font-bold text-gray-900 mb-2">The Exoboot Prototype</h4>
+                                <p class="text-gray-600 leading-relaxed">Before I walk across the graduation stage, my goal is to design, build, and test a fully functional exoboot prototype. This is not just an academic exercise; it is my personal roadmap to overcoming the physical limitations of fallen arches and regaining my independence.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4">
+                            <div aria-hidden="true" class="shrink-0 w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center text-blue-700 font-bold text-xl">2</div>
+                            <div>
+                                <h4 class="text-xl font-bold text-gray-900 mb-2">Global Impact</h4>
+                                <p class="text-gray-600 leading-relaxed">Your donation empowers one student today, but the impact doesn't end with me. By proving these accessible, low-cost electrical engineering concepts, the designs, firmware, and schematics I develop will be open-sourced to help millions around the world who face similar mobility afflictions.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4">
+                            <div aria-hidden="true" class="shrink-0 w-12 h-12 rounded-full bg-orange-100 flex items-center justify-center text-orange-700 font-bold text-xl">3</div>
+                            <div>
+                                <h4 class="text-xl font-bold text-gray-900 mb-2">The RIT Advantage</h4>
+                                <p class="text-gray-600 leading-relaxed">RIT is the engine that makes this possible. With immediate access to state-of-the-art electronics prototyping labs, advanced embedded systems research facilities, and world-class mentorship, RIT provides the exact environment needed to turn this ambitious concept into a life-changing reality.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative">
+                    <div class="bg-gray-50 rounded-2xl p-4 border-2 border-dashed border-gray-300 shadow-inner relative group transition duration-300 hover:border-purple-400">
+                        
+                        <div class="absolute -top-4 left-6 bg-gray-900 text-white text-xs font-bold uppercase tracking-wider py-1 px-3 rounded-full shadow-md z-20">
+                            Prototype Concept Art
+                        </div>
+
+                        <div class="aspect-[4/5] w-full bg-gray-200 rounded-xl overflow-hidden relative flex items-center justify-center">                            
+                            <img src="ExoBoot.png" alt="Exoboot Concept Sketch" class="w-full h-full object-cover opacity-80 mix-blend-multiply">
+                        </div>
+
+                        <div class="absolute -bottom-4 -right-4 flex space-x-1">
+                            <div class="w-2 h-2 rounded-full bg-purple-400"></div>
+                            <div class="w-2 h-2 rounded-full bg-purple-600"></div>
+                            <div class="w-2 h-2 rounded-full bg-gray-900"></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="analysis" aria-labelledby="analysis-heading" class="container mx-auto mt-16 px-6 mb-20">
+        <div class="bg-white p-10 rounded-3xl shadow-lg border border-gray-100">
+            <div class="border-b border-gray-200 pb-6 mb-10">
+                <h2 id="analysis-heading" class="text-4xl font-bold text-gray-900">Total Transparency: The Funding Breakdown</h2>
+                <p class="text-lg text-gray-600 mt-2">Every dollar secured has been fought for through official channels. ACCES-VR (NY Vocational Rehabilitation) may cover up to $14,170 of the remaining gap — but requires formal IPE finalization. This campaign bridges the uncertainty while that process completes.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-10">
+                <div class="space-y-6">
+                    <h4 class="text-2xl font-semibold text-gray-900 border-l-4 border-purple-500 pl-3">Year 1 Costs</h4>
+                    <div class="bg-gray-50 p-6 rounded-xl border border-gray-200">
+                        <canvas id="costBreakdownChart" role="img" aria-label="Doughnut chart showing year 1 cost breakdown: Tuition $64,833, Housing and Food $17,370, Books $1,100, Transportation $1,000, Other $790"></canvas>
+                    </div>
+                    <p class="text-sm text-gray-600 bg-purple-50 p-4 rounded-lg">This analysis targets 'Cost of Attendance' (COA), which includes non-tuition essentials like a standard dorm and required meal plan, allowing me to focus exclusively on this rigorous STEM curriculum.</p>
+                </div>
+
+                <div class="md:col-span-2 space-y-6">
+                    <h4 class="text-2xl font-semibold text-gray-900 border-l-4 border-green-500 pl-3">Avenues Processed and 'Exhausted'</h4>
+                    
+                    <div class="grid sm:grid-cols-2 gap-4">
+                        <div v-for="source in fundingSources" :key="source.name" :class="['p-5 rounded-xl border', source.secured > 0 ? 'bg-green-50 border-green-200' : 'bg-gray-50 border-gray-200']">
+                            <div class="flex justify-between items-start">
+                                <h5 class="font-bold text-gray-950">{{ source.name }}</h5>
+                                <span :class="['px-3 py-1 rounded-full text-xs font-bold uppercase', source.secured > 0 ? 'bg-green-100 text-green-800' : 'bg-yellow-100 text-yellow-800']">
+                                    {{ source.secured > 0 ? 'Secured' : 'Pending/Gap' }}
+                                </span>
+                            </div>
+                            <p class="text-2xl font-extrabold mt-2 text-gray-900">${{ source.secured.toLocaleString() }} <span class="text-sm font-normal text-gray-500">/ ${{ source.potential.toLocaleString() }}</span></p>
+                            <p class="text-sm text-gray-600 mt-2">{{ source.description }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="donors" aria-labelledby="donors-heading" class="container mx-auto mt-16 px-6">
+        <div class="bg-white p-10 rounded-3xl shadow-lg border border-gray-100">
+            <div class="border-b border-gray-200 pb-6 mb-8 flex flex-wrap items-end justify-between gap-4">
+                <div>
+                    <h2 id="donors-heading" class="text-4xl font-bold text-gray-900">Featured Donors</h2>
+                    <p class="text-lg text-gray-600 mt-2">These incredible people have already stepped up. Every contribution brings this goal closer to reality.</p>
+                </div>
+                <span class="text-sm font-semibold bg-green-100 text-green-800 px-4 py-2 rounded-full">${{ donorsTotal.toLocaleString() }} raised from community</span>
+            </div>
+            <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
+                <div class="bg-gradient-to-br from-purple-50 to-blue-50 border border-purple-100 rounded-2xl p-6 flex items-center gap-4 shadow-sm">
+                    <div aria-hidden="true" class="w-14 h-14 rounded-full bg-purple-600 flex items-center justify-center text-white font-extrabold text-xl shadow-md shrink-0">B</div>
+                    <div>
+                        <p class="font-extrabold text-gray-900 text-lg leading-tight">Brandon Starkweather</p>
+                        <p class="text-purple-700 font-black text-2xl">$500</p>
+                        <p class="text-xs text-gray-500 mt-1 font-semibold uppercase tracking-wide">Brother · Deposit</p>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="donate" aria-labelledby="donate-heading" class="container mx-auto mt-16 px-6 mb-16">
+        <div class="gradient-bg text-white p-10 md:p-14 rounded-3xl shadow-2xl flex flex-col md:flex-row items-center justify-between gap-10 border-4 border-white ring-4 ring-gray-100">
+            
+            <div class="max-w-2xl">
+                <div class="flex items-center gap-3 mb-4">
+                    <svg class="w-8 h-8 text-white opacity-80" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                    <h2 id="donate-heading" class="text-4xl md:text-5xl font-extrabold">Help Close the Gap</h2>
+                </div>
+                
+                <p class="text-lg md:text-xl font-medium mb-8 text-purple-50">
+                    Every dollar goes directly toward securing accessible housing and an inclusive meal plan for Connor's 2026-2027 academic year at RIT. If you cannot contribute financially, sharing this page with your network is just as valuable!
+                </p>
+                
+                <div class="flex flex-wrap gap-4">
+                    <a href="#" target="_blank" rel="noopener noreferrer" class="bg-white text-purple-700 hover:bg-gray-100 font-extrabold text-lg py-4 px-10 rounded-full shadow-xl transition duration-200 flex items-center gap-3 transform hover:-translate-y-1">
+                        Donate via GoFundMe
+                        <svg aria-hidden="true" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                    </a>
+                    
+                    <button @click="shareCampaign" class="bg-gray-900 hover:bg-gray-800 text-white font-bold text-lg py-4 px-8 rounded-full shadow-lg transition duration-200 border border-gray-900 hover:border-gray-700 flex items-center gap-2">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"></path></svg>
+                        Share Campaign
+                    </button>
+                </div>
+            </div>
+
+            <div class="w-full md:w-1/3 bg-black/10 p-8 rounded-2xl border border-white/20 text-center backdrop-blur-sm shadow-inner">
+                <h4 class="text-xl font-bold mb-2 text-purple-50 uppercase tracking-widest">Target Goal</h4>
+                <p class="text-6xl font-black text-white drop-shadow-md mb-2">${{ gapAmount.toLocaleString() }}</p>
+                <p class="text-sm font-semibold opacity-90">Remaining for Year 1</p>
+            </div>
+            
+        </div>
+    </section>
+
+    </main>
+
+    <footer class="bg-gray-900 text-gray-300 p-10 mt-auto">
+        <div class="container mx-auto text-center text-sm">
+            <!-- Social links -->
+            <div class="flex justify-center gap-6 mb-8">
+                <a href="https://www.linkedin.com/in/connortherobot/" target="_blank" rel="noopener noreferrer"
+                   aria-label="Connor's LinkedIn profile"
+                   class="group flex items-center gap-2 text-gray-400 hover:text-blue-400 transition duration-150 font-medium text-sm">
+                    <svg aria-hidden="true" class="w-5 h-5 shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                    </svg>
+                    <span class="group-hover:underline underline-offset-2">LinkedIn</span>
+                </a>
+
+                <span aria-hidden="true" class="text-gray-700 select-none">·</span>
+
+                <a href="https://github.com/GnomeTasty" target="_blank" rel="noopener noreferrer"
+                   aria-label="Connor's GitHub profile"
+                   class="group flex items-center gap-2 text-gray-400 hover:text-white transition duration-150 font-medium text-sm">
+                    <svg aria-hidden="true" class="w-5 h-5 shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
+                    </svg>
+                    <span class="group-hover:underline underline-offset-2">GitHub</span>
+                </a>
+
+                <span aria-hidden="true" class="text-gray-700 select-none">·</span>
+
+                <a href="https://connorevanlloyd.wordpress.com/" target="_blank" rel="noopener noreferrer"
+                   aria-label="Connor's WordPress portfolio"
+                   class="group flex items-center gap-2 text-gray-400 hover:text-sky-400 transition duration-150 font-medium text-sm">
+                    <svg aria-hidden="true" class="w-5 h-5 shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M21.469 6.825c.469 1.199.727 2.502.727 3.866 0 3.632-1.961 6.812-4.88 8.591l3.012-8.71c.564-1.406.752-2.533.752-3.534 0-.36-.023-.696-.611-.213zM12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm-.03 23.359c-1.87 0-3.647-.479-5.199-1.322l5.521-16.05c.443.016.885.016 1.326.016l5.524 16.05A11.934 11.934 0 0111.97 23.36zm6.68-2.182l-3.61-10.486-.021-.055-.01-.032 3.64 10.573zm-13.18.001l3.639-10.572-.032.087-3.607 10.485z"/>
+                    </svg>
+                    <span class="group-hover:underline underline-offset-2">Portfolio</span>
+                </a>
+            </div>
+
+            <div class="border-t border-gray-800 pt-6 text-center text-sm space-y-2">
+
+
+            <p>This is a grassroots fundraising campaign managed by advocates supporting Connor.</p>
+            <p class="mt-2">This page is hosted transparently on GitHub Pages. No backend data is collected.</p>
+            <p class="mt-4"><a href="https://www.youtube.com/watch?v=JauOPGijv_Q" target="_blank" rel="noopener noreferrer" class="text-purple-400 hover:underline">Watch the original RIT Campus Tour video on YouTube</a></p>
+        </div>
+    </footer>
+</div>
+
+<script>
+    const { createApp, onMounted, ref, computed } = Vue;
+
+    createApp({
+        setup() {
+            // Source of Truth: RIT 2026-2027 Financial Aid Offer (issued 03/23/2026)
+            const totalNeeded = ref(85093); // Official Cost of Attendance
+
+            const costData = {
+                tuition: 64833,
+                housingBoard: 17370,
+                booksSupplies: 1100,
+                transportation: 1000,
+                other: 790
+            };
+
+            const donors = ref([
+                { name: 'Brandon Starkweather', amount: 500, relation: 'Brother' },
+            ]);
+
+            const fundingSources = ref([
+                { name: 'RIT Institutional Grant', secured: 26200, potential: 26200, description: 'Need-based grant from RIT for the 2026-2027 academic year. No repayment required.', color: '#60a5fa' },
+                { name: 'RIT Trustee Scholarship', secured: 21000, potential: 21000, description: 'Renewable merit scholarship awarded by RIT based on academic excellence.', color: '#a78bfa' },
+                { name: 'Federal Pell Grant', secured: 7395, potential: 7395, description: 'Max Pell Grant secured via Dependency Override (Independent student status).', color: '#4ade80' },
+                { name: 'NY State TAP Award', secured: 3525, potential: 3525, description: 'New York State Tuition Assistance Program award based on demonstrated financial need.', color: '#34d399' },
+                { name: 'Federal SEOG Grant', secured: 800, potential: 800, description: 'Federal Supplemental Educational Opportunity Grant awarded for exceptional financial need.', color: '#86efac' },
+                { name: 'Subsidized Direct Loan', secured: 5500, potential: 5500, description: 'Federal loan (6.39% interest, 1.06% origination fee). No interest accrues while enrolled.', color: '#fbbf24' },
+                { name: 'Unsubsidized Direct Loan', secured: 2000, potential: 2000, description: 'Federal loan (6.39% interest, 1.06% origination fee). Interest accrues during enrollment.', color: '#f97316' },
+                { name: 'Federal Work Study', secured: 3400, potential: 3400, description: 'Part-time campus employment paid bi-weekly directly to Connor — not credited to the tuition bill.', color: '#e879f9' },
+                { name: 'ACCES-VR: Room & Board', secured: 0, potential: 6000, description: 'NY Vocational Rehabilitation may contribute up to $6,000/yr toward on-campus housing. Calculated after need-based grants (Pell, SEOG, TAP, RIT Grant) are applied. Pending IPE finalization.', color: '#94a3b8' },
+                { name: 'ACCES-VR: Tuition Support', secured: 0, potential: 7070, description: 'ACCES-VR may contribute toward tuition up to the published SUNY/CUNY rate (~$7,070). Merit scholarships are excluded from their comparable benefits calculation — a key advantage for Connor.', color: '#cbd5e1' },
+                { name: 'ACCES-VR: Books & Materials', secured: 0, potential: 1100, description: 'ACCES-VR may contribute toward required textbooks and materials at the lowest available cost, including rentals. Requires prior counselor approval for non-vendor purchases.', color: '#e2e8f0' },
+                { name: 'Direct Donations', secured: 500, potential: 14773, description: 'Community contributions made directly to Connor\'s campaign. First contribution: Brandon Starkweather — $500 (Brother · Deposit).', color: '#f43f5e' },
+            ]);
+
+            const donorsTotal = computed(() => donors.value.reduce((sum, d) => sum + d.amount, 0));
+            const totalSecured = computed(() => fundingSources.value.reduce((sum, s) => sum + s.secured, 0));
+            const gapAmount = computed(() => totalNeeded.value - totalSecured.value);
+
+            const shareCampaign = async () => {
+                const shareData = {
+                    title: "Connor's Electrical Engineering Fund",
+                    text: "Help Connor secure his final step to an engineering degree at RIT to build accessible exoboot technology!",
+                    url: window.location.href // Automatically grabs your GitHub Pages URL
+                };
+
+                // Check if the device supports the native share menu
+                if (navigator.share) {
+                    try {
+                        await navigator.share(shareData);
+                    } catch (err) {
+                        console.log('User cancelled share or error occurred.');
+                    }
+                } else {
+                    // Fallback for older desktop browsers: Copy to clipboard
+                    try {
+                        await navigator.clipboard.writeText(shareData.url);
+                        alert("Campaign link copied to clipboard! Thank you for sharing.");
+                    } catch (err) {
+                        alert("Could not copy link. Please manually copy the URL in your address bar.");
+                    }
+                }
+            };
+
+            onMounted(() => {
+                // Hide all decorative SVGs from screen readers
+                document.querySelectorAll('svg:not([role="img"])').forEach(svg => svg.setAttribute('aria-hidden', 'true'));
+
+                const ctxTherm = document.getElementById('fundingThermometer').getContext('2d');
+                new Chart(ctxTherm, {
+                    type: 'bar',
+                    data: {
+                        labels: ['Funding Status'],
+                        datasets: [
+                            ...fundingSources.value.map(source => ({
+                                label: source.name,
+                                data: [source.secured],
+                                backgroundColor: source.color,
+                                borderWidth: 0,
+                                stack: 'Stack 0',
+                            })),
+                            {
+                                label: 'Gap Needed',
+                                data: [gapAmount.value],
+                                backgroundColor: '#e5e7eb',
+                                borderWidth: 2,
+                                borderColor: '#fb923c',
+                                borderDash: [5, 5],
+                                stack: 'Stack 0',
+                            }
+                        ]
+                    },
+                    options: {
+                        plugins: {
+                            legend: { display: true, position: 'bottom', labels: { boxWidth: 12 } },
+                            tooltip: { callbacks: { label: (ctx) => `${ctx.dataset.label}: $${ctx.raw.toLocaleString()}` } }
+                        },
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        scales: {
+                            x: { stacked: true, display: false },
+                            y: { stacked: true, beginAtZero: true, max: totalNeeded.value, ticks: { callback: (v) => '$' + v.toLocaleString() } }
+                        }
+                    }
+                });
+
+                const ctxCost = document.getElementById('costBreakdownChart').getContext('2d');
+                new Chart(ctxCost, {
+                    type: 'doughnut',
+                    data: {
+                        labels: ['Tuition & Fees', 'Housing & Food', 'Books & Supplies', 'Transportation', 'Other'],
+                        datasets: [{
+                            data: [costData.tuition, costData.housingBoard, costData.booksSupplies, costData.transportation, costData.other],
+                            backgroundColor: ['#7c3aed', '#a78bfa', '#ddd6fe', '#c4b5fd', '#f5f3ff'],
+                            borderWidth: 2,
+                            borderColor: '#ffffff'
+                        }]
+                    },
+                    options: {
+                        plugins: {
+                            legend: { display: true, position: 'bottom', labels: { boxWidth: 10, padding: 15, font: { size: 11 } } },
+                        },
+                        responsive: true,
+                        maintainAspectRatio: true,
+                    }
+                });
+            });
+
+            return { totalNeeded, fundingSources, donors, donorsTotal, gapAmount, shareCampaign };
+        }
+    }).mount('#app');
+</script>
+
+</body>
+</html>
